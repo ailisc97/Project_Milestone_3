@@ -34,11 +34,11 @@
                     <li><a href="{{ url_for('') }}">Contact</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('') }}">Create Post</a></li>
-                        <li><a href="{{ url_for(' }}">Profile</a></li>
-                        <li><a href="{{ url_for('') }}">Sign Out</a></li>
+                        <li><a href="{{ url_for(' ')'}}">Profile</a></li>
+                        <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('') }}">Sign Up</a></li>
-                        <li><a href="{{ url_for('') }}">Sign In</a></li>
+                        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                        <li><a href="{{ url_for('signin') }}">Sign In</a></li>
                     {% endif %}
                 </ul>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right menu-icon">
@@ -48,10 +48,7 @@
                 </a>
             </div>
         </nav>
-        <!-- Nav End -->
-
-
-        
+        <!-- Nav End -->   
         <!-- Main Content -->
         <main>
             <!-- Flash messages -->
@@ -89,7 +86,7 @@
                     <p class="footer-content">
                         <a href="{{ url_for('') }}">Find Resturants</a> - 
                         <a href="{{ url_for('') }}">Contact Us</a><br>
-                        <a href="{{ url_for('') }}">Sign Up</a>  -
+                        <a href="{{ url_for('signin') }}">Sign In</a> -
                         <a href="{{ url_for(''') }}">About Us</a>
                     </p>
                 </div>
