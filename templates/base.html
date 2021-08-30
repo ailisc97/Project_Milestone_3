@@ -13,7 +13,8 @@
             type="text/css">
         <!-- Import custom CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-      
+       
+
         {% block styles %}
         {% endblock %}
         <title>Resturant Finder</title>
@@ -30,11 +31,11 @@
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('') }}">Resturants</a></li>
-                    <li><a href="{{ url_for('') }}">Contact</a></li>
+                    <li><a href="{{ url_for('get_resturant') }}">Resturants</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('') }}">Create Post</a></li>
-                        <li><a href="{{ url_for(' ')'}}">Profile</a></li>
+                        <li><a href="{{ url_for('create_resturant') }}">Create Resturant</a></li>
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
@@ -48,23 +49,24 @@
                 </a>
             </div>
         </nav>
-        <!-- Nav End -->   
-        <!-- Main Content -->
-        <main>
-            <!-- Flash messages -->
-            {% with messages = get_flashed_messages(with_categories=True) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="row flashes center-align">
-                            <h4 class="alert-{{ category }}">{{ message }}</h4>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
+        <!-- Nav End -->
 
-            {% block content %}
-            {% endblock %}
-        </main>
+        <!-- Mobile side Nav Start -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('get_resturant') }}">Resturants</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            {% if session.user %}
+                <li><a href="{{ url_for('create_resturant') }}">Create Resturant</a></li>
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+            {% else %}
+                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+            {% endif %}
+        </ul>
+        <!-- Mobile side Nav End -->
+
 
         <!-- Start Footer -->
         <footer>
@@ -74,7 +76,7 @@
                     <p class="footer-title">Contact Information</p>
                     <p class="footer-content">
                         The Resturant Finder<br>
-                        <a href="">Email: <span class="blue-grey-text footer-content">Resturant@gmail.com</span></a><br>
+                        <a href="mailto:">Email: <span class="blue-grey-text footer-content"></span></a><br>
                         <a href="tel:555-555-5555">Tel: <span class="blue-grey-text footer-content">555-555-5555</span></a>
                     </p>
                 </div>
@@ -84,16 +86,16 @@
                         Site Links
                     </p>
                     <p class="footer-content">
-                        <a href="{{ url_for('') }}">Find Resturants</a> - 
-                        <a href="{{ url_for('') }}">Contact Us</a><br>
-                        <a href="{{ url_for('signin') }}">Sign In</a> -
-                        <a href="{{ url_for(''') }}">About Us</a>
+                        <a href="{{ url_for('get_resturants') }}">Find Resturants</a> - 
+                        <a href="{{ url_for('contact') }}">Contact Us</a><br>
+                        <a href="{{ url_for('signup') }}">Sign Up</a>  -
+                        <a href="{{ url_for('home', _anchor='about') }}">About Us</a>
                     </p>
                 </div>
                 <!-- Copyright info -->
                 <div class="col s12 center-align">
                     <p class="footer-copyright">
-                        Copyright &copy; 2021 by Ailis Curran
+                        Copyright &copy; 2021 By Ailis Curran
                     </p>
                 </div>
             </div>
@@ -104,7 +106,7 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <!-- Import custom JS -->
-        <script src="{{ ) }}"></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
         {% block scripts %}
         {% endblock %}
     </body>
