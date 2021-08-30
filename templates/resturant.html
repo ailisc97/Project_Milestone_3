@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col s12 l8 offset-l2" id="main-cont">
+            <h1 class="main-heading">Resturants</h1>
+
+            <!-- Search Form -->
+            <div class="row card-panel grey lighten-5">
+                <div class="col s12 center-align">
+                    <p id="search-header">
+                        <i class="fas fa-search prefix black-text text-darken-2" id="search"></i>
+                        Looking for a Resturant?
+                    </p>
+                    <p id="search-sub">You can search by Resturant Type, Drink Type or Location</p>
+                </div>
+
+                <form action="{{ url_for('search') }}" method="post" class="col s12">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <div class="row">
+                        <!-- Resturant type drop down -->
+                        <div class="input-field col s12 m6 offset-m3">
+                            <select id="resturtant_type" name="resturtant_type" class="validate">
+                                <option value="" disabled selected>Choose Resturant Types</option>
+                                {% for category in categories %}
+                                    <option value="{{ category.resturant_type }}">{{ category.resturant_type }}</option>
+                                {% endfor %}
+                            </select>
+                            <label class="form-label">Resturant Type</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Text search box -->
+                        <div class="input-field col s12 m6 offset-m3">
+                            <input type="text" name="location" id="location" class="validate" placeholder="Dublin">
+                            <label for="location" class="form-label">Location</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Drink Picker -->
+                        <div class="input-field col s12 m6 offset-m3">
+                            <input id="drink" name="drink" type="text" class="validate">
+                            <label for="drink" class="form-label">Drink Type</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Search Button -->
+                        <div class="col s12 center-align">
+                            <button type="submit" class="button-bg-color black-text btn text-shadow" id="search-btn">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            {% if resturtants|length > 0 %}
+                <ul class="collapsible">
+                    {% for resturtant in resturtants %}
+                    <li>
+                        <div class="collapsible-header card-collapse text-shadow">
+                            <div class="col s12">
+                                <p class="resturant-title">{{ resturant.resturant_type }}<br> 
+                                   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="collapsible-body">
+                            <p class="resturant-header">Resturant Type:<br> 
+                                <span class="resturant-sub">{{ resturant.fooddescription }}</span>
+                            </p>
+                            <p class="resturant-header">Drink Type:<br> 
+                                <span class="resturant-sub">{{ resturant.drinkdescription }}</span>
+                            </p>
+                            <p class="resturant-header">Location:<br>
+                                <span class="resturant-sub">{{ resturant.location }}</span>
+                            </p>
+                            
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <p class="red-text text-darken-4 center-align">No Results Found</p>
+            {% endif %}
+            
+        </div>
+    </div>
+{% endblock %}
