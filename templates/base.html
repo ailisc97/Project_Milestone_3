@@ -13,7 +13,9 @@
             type="text/css">
         <!-- Import custom CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-       
+        <!--Bootstrap 4-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> 
+
 
         {% block styles %}
         {% endblock %}
@@ -31,15 +33,15 @@
             <div class="nav-wrapper">
                 <ul class="hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('get_resturant') }}">Resturants</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="#">Resturants</a></li>
+                    <li><a href="#">Contact</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('create_resturant') }}">Create Resturant</a></li>
-                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                        <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+                        <li><a href="#">Create Resturant</a></li>
+                        <li><a href="#">Profile</a></li>
+                        <li><a href="#">Sign Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
-                        <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                        <li><a href="#">Sign In</a></li>
                     {% endif %}
                 </ul>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right menu-icon">
@@ -54,19 +56,22 @@
         <!-- Mobile side Nav Start -->
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('get_resturant') }}">Resturants</a></li>
-            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="#">Resturants</a></li>
+            <li><a href="#">Contact</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('create_resturant') }}">Create Resturant</a></li>
-                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                <li><a href="{{ url_for('signout') }}">Sign Out</a></li>
+                <li><a href="#">Create Resturant</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">Sign Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
-                <li><a href="{{ url_for('signin') }}">Sign In</a></li>
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Sign In</a></li>
             {% endif %}
         </ul>
         <!-- Mobile side Nav End -->
 
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
 
         <!-- Start Footer -->
         <footer>
@@ -86,10 +91,10 @@
                         Site Links
                     </p>
                     <p class="footer-content">
-                        <a href="{{ url_for('get_resturants') }}">Find Resturants</a> - 
-                        <a href="{{ url_for('contact') }}">Contact Us</a><br>
-                        <a href="{{ url_for('signup') }}">Sign Up</a>  -
-                        <a href="{{ url_for('home', _anchor='about') }}">About Us</a>
+                        <a href="#">Find Resturants</a> - 
+                        <a href="#">Contact Us</a><br>
+                        <a href="#">Sign Up</a>  -
+                        <a href="#">About Us</a>
                     </p>
                 </div>
                 <!-- Copyright info -->
