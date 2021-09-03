@@ -155,86 +155,7 @@ The Nav bar, footer and form were all from Bootstrap.
 * [Python syntax checker](https://extendsclass.com/python-tester.html)
     * Python Checker is an important website to make sure there are no errors in the JS code.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-## Testing
 
-### Test Strategy 
-
-#### Summary 
-
-Testing is required on Milestone Project 2, Ping Pong Game for Interactive Frontend Development.
-
-The testing performed will be on the visual effects and layout of the Website. Testing to be done on Google Chrome web browser. Testing on the game will be letting the computer win and getting the user to win.The game should be fully responsive.
-
-
-In the Navigation bar the links should take the user to the correct html page. The Home page will be redirected to index.html.
-
-On the Results.html page the form must not be submitted until the required information is inputted into the fields. And an email should be recieved to my personal gamil account. The email template is as seen below.
-
-![Email](assets/images/EmailTemplate.PNG)
-
-Validation of inclusion for all features included in the Structure of the Website / Wireframes must be performed.
-
-
-The live Project can be found [here](https://ailisc97.github.io/Milestone_Project_2/).</br>
-
-#### High Level Test Cases 
-![Test Cases](assets/images/HighLevelTest.PNG)
-
-#### Out of Scope  
-* There is no way to save forms - forms come via email.
-
-### Test Results
-Testing results can be found [here](assets/images/TestCases.xlsx)<br>
-This results are a .xlsx file and will need excel to open. <br>
-All Pages were run through the [W3C HTML Validator](https://validator.w3.org/), there was no errors.<br>
-CSS Stylesheet was run through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_uri),there was no errors.
-JS Page was ran through [JShint](https://jshint.com/), there was no errors.
-<br>
-
-* As a First Time user,I want to easily and quickly navigate the website to play the Pong Game. -Testing was complete. It was easy and quick to navigate. The game is successful, until it reaches a bug on the computers ball where the paddle gets 'stuck'.
-* As a First Time user, I want to easily and quickly navigate the website to send my Ping Pong Scores. -Testing was complete. It was easy to navigate to send my scores off.
-* As a First Time user, I want to access the Social Media links. -Testing was complete. The user could access all the correct social media links.
-* As a First Time user, I want to where the website was made. -Testing was complete. The user could see where the website was made in the footer.
-
-* As a Returning User, I want to know how to contact the makers of the game. -Testing was complete. The user can contact the makers of the game by seeing their information in the footer.
-* As a Returning user, I want to keep inputting my scores into the form, to recieve stickers. -Testing was complete. The form allows you to send your scores off more then once. The form just needs to be cleared everything before inputting the new information, which is send to me via email.
-
-* As a Frequent user, I want to get better and better at playing the game so my score can increase. -Testing was complete. The user can get better and better at the game with more practice. 
-* As a Frequent user, I want to keep inputting my scores into the form, to recieve stickers. -Testing was complete. The user can send off more then just one score and the user will be contacted if their score is high enough to win the stickers, as all the relivent contact details have been required and sent on.
-
-### Issues and Resolutions to issues found during testing
-The website is not mobile first and when the page is put into a mobile first device using google inspect the game is laggy and doesnt work.
-
-Another issue is that the form doesnt auto clear. 
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-## Deployment
-
-### Project Creation
-I created a repository in Github and called it Milestone_Project 2, I selected to add a README into the project. When I went into the repository, I clicked the GitPod button on the top right and that opened GitPod for me. I used Git to add, commit and push all my saved work from GitPod.
-
-* git add . -This would add all the work from the different pages to the GitHub.
-* git add index.html -Would only save the work from Index.html
-* git pull - This would pull the GitHub version of my project.
-* git commit -m "MESSAGE" - This would commit the added work from git add . and leave a message beside it.
-* git push- This pushed the added work to GitHub
-* python3 -m http.server - This opened the website on the right hand side of the page.
-
-### Using Github Pages
-1. On the GitHub [Repository:](https://github.com/ailisc97/Milestone_Project_2.git)
-1. Click the 'Settings' Tab on the right hand side.
-1. Click on options.
-1. Scroll Down to the Git Hub Pages Heading.
-1. Select 'main' as the source.
-1. Click the Save button.
-1. Click on the link to go to the deployed page
-
-### Run Locally
-1. On the GitHub [Repository:](https://github.com/ailisc97/Milestone_Project_2.git)
-1. Click on the download code button, you will get options to clone the GitHub Repository or Download the Zip file.
-1. If you downloaded the zip file open the file using one of your IDE application.
-1. Or if you choice to clone the GitHub Repository, then open up a terminal and get to a directory of your choice then type in "git clone" followed by the GitHub Repository URL.
-1. The clone will be created on your loacal machine. 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## Credits
@@ -242,23 +163,8 @@ I created a repository in Github and called it Milestone_Project 2, I selected t
 ### Code
 Code for the Navigation bar, form and the contact us form. was taken from [Bootstrap](https://getbootstrap.com/).
 
-I took insperation from different youtube videos and webpages that discribed what needed to be done for the Ping Pong Game. <br>
+I took insperation from the mini project which was completed with the college. <br>
 
-* [YouTube-Create a Ping Pong Game using JavaScript JavaScript For Beginners | Great Learning Academy](https://www.youtube.com/watch?v=3UjU7r5qOxY). 
-* [YouTube-Code Ping Pong Game Using JavaScript and HTML5](https://www.youtube.com/watch?v=nl0KXCa5pJk)
-* [YouTube-Build a Ping Pong Game with Javascript in 24 Minutes](https://www.youtube.com/watch?v=x3Z4nLs7bnw)
-* [YouTube-Pong in JavaScript (using ES6)](https://www.youtube.com/watch?v=ju09womACpQ)
-* [YouTube-Code Ping Pong Game Using JavaScript and HTML5](https://www.youtube.com/watch?v=nl0KXCa5pJk&list=RDCMUC8n8ftV94ZU_DJLOLtrpORA&start_radio=1&t=2790s)
-* [YouTube-Coding Challenge #67: Pong!](https://www.youtube.com/watch?v=IIrC5Qcb2G4)
-* [YouTube-Let's make Pong! (tutorial for beginners) #1 - p5js](https://www.youtube.com/watch?v=m6H6SHIdAhQ)
-* [YouTube-Let's make Pong! (tutorial for beginners) #2 - p5js](https://www.youtube.com/watch?v=ag-v4Pdtu-8)
-* [YouTube-Let's make Pong! (tutorial for beginners) #3 - p5js](https://www.youtube.com/watch?v=_PApbz7g6ms)
-* [Webpage-Learn to Code Ping Pong Game using Javascript and HTML5](https://thecodingpie.com/post/learn-to-code-ping-pong-game-using-javascript-and-html5)
-* [Webpage-Pong game with JavaScript](https://codepen.io/gdube/pen/JybxxZ)
-* [Webpage-JavaScript Pong with p5.js](https://kellylougheed.medium.com/javascript-pong-with-p5-js-3ae1b859418c)
-
-One page linked below is the YouTube video, which helped me with the sendEmail.js 
-* [YouTube-How to send emails using React through EmailJs](https://www.youtube.com/watch?v=NgWGllOjkbs)
 ### Content
 Content was created by Ailis Curran.
 
@@ -267,4 +173,3 @@ I would like to thank my mentor Spencer Barriball for all his help throughout th
 
 ### Comments
 README.md insperation was taken from my previous Milestone Project. It gave me a template to complete my README, all README content is my own.
- 
