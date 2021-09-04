@@ -98,3 +98,8 @@ def place(place_id):
     place_db = mongo.db.places.find_one_or_404({'_id': ObjectId(place_id)})
     return render_template('place.html', place=place_db)
 
+
+@app.errorhandler(404)
+def handle_404(exception):
+    return render_template('404.html', exception=exception)
+
