@@ -88,24 +88,13 @@ def logout():
     return redirect(url_for('home'))
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-   """
-   Takes the session user's username from 'users' database
-   and returns them to their profile page. Returns resturants
-   created by the user.
-   """
-   username = mongo.db.users.find_one(
-       {"username": session["user"]})
-
-   if session["user"]:
-       resturants = list(mongo.db.places.find())
-      # Filters  that were created by the user
-       resturants = list(filter
-                     (lambda x: x['created_by'] == username['username'],
-                      resturants))
-       return render_template("profile.html",
-                              username=username, resturants=resturants)
-
-   return redirect(url_for("signin"))
+@app.route('/place/<place_id>')
+def place(place_id):
+    """Shows full recipe and increments view"""
+    mongo.db.places.find_one_and_update(
+        {'_id': ObjectId(place_id)},
+        {'$inc': {'view': 1}}
+    )
+    place_db = mongo.db.places.find_one_or_404({'_id': ObjectId(place_id)})
+    return render_template('place.html', place=place_db)
 
