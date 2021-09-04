@@ -149,3 +149,20 @@ def create_place():
         })
         return redirect(url_for('home'))
     return render_template('create_restaurant.html', form=form)
+
+
+@app.route('/delete_place/<place_id>', methods=['GET', 'POST'])
+def delete_place(place_id):
+    """Allows logged in user to delete one of their recipes with added confirmation"""
+    place_db = mongo.db.places.find_one_or_404({'_id': ObjectId(place_id)})
+    if request.method == 'GET':
+        form = ConfirmDelete(data=place_db)
+        return render_template('delete_restaurant.html', title="Delete Restaurant", form=form)
+    form = ConfirmDelete(request.form)
+    if form.validate_on_submit():
+        places_db = mongo.db.places
+        places_db.delete_one({
+            '_id': ObjectId(place_id),
+        })
+        return redirect(url_for('home'))
+    return render_template('delete_restaurant.html', place=place_db, form=form)
