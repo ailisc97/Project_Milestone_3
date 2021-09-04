@@ -81,6 +81,12 @@ def login():
     return render_template("login.html", form=form)
 
 
+@app.route('/logout')
+def logout():
+    """Clears session and redirects to home"""
+    session.clear()
+    return redirect(url_for('home'))
+
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -103,13 +109,3 @@ def profile(username):
 
    return redirect(url_for("signin"))
 
-
-@app.route("/signout")
-def signout():
-   """
-    Removes logged in user from session cookie and
-    returns them to the signin page.
-    """
-   flash("You have been signed out", 'message')
-   session.pop("user")
-   return redirect(url_for("signin"))
