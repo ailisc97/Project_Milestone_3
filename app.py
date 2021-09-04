@@ -103,3 +103,29 @@ def place(place_id):
 def handle_404(exception):
     return render_template('404.html', exception=exception)
 
+
+@app.route('/edit_place/<place_id>', methods=['GET', 'POST'])
+def edit_place(place_id):
+    """Allows logged in user to edit their own recipes"""
+    place_db = mongo.db.places.find_one_or_404({'_id': ObjectId(place_id)})
+    if request.method == 'GET':
+        form = EditPlacesForm(data=place_db)
+        return render_template('edit_restaurant.html', recipe=place_db, form=form)
+    form = EditPlacesForm(request.form)
+    if form.validate_on_submit():
+        places_db = mongo.db.places
+        places_db.update_one({
+            '_id': ObjectId(place_id),
+        }, {
+            '$set': {
+                'name': request.form['name'],
+                'city': request.form['city'],
+                'added_by': session['username'],
+                'description': request.form['description'],
+                'tags': request.form['tags'],
+                'image': request.form['image'],
+            }
+        })
+        return redirect(url_for('home'))
+    return render_template('edit_restaurant.html', place=place_db, form=form)
+
