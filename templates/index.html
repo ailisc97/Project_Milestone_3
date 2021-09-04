@@ -1,23 +1,38 @@
 {% extends "base.html" %}
-
+{% block nav_index %}active{% endblock %}
 {% block content %}
-    <div class="row">
-        <div class="col s12 l8 offset-l2 center-align" id="main-cont">
-            <h1 class="main-heading">Resturant Finder</h1>
-            <div class="row">
-                {% for place in places %}
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ place.name }}</h5>
-                      <p class="card-text">{{ place.tags}}</p>
-                      <p class="card-text">{{ place.city}}</p>
-                      <p class="card-text">{{ place.phone}}</p>
-                      <a href="{{ place.website }}" class="btn btn-primary">Visit Website</a>
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <h1 class="display-3">Let's find a restaurant!</h1>
+        <p class="lead ">You tell me, I tell You</p>
+        <div class="row">
+            <div class="col-lg-4">
+                <form class="input-group mb-3" action="{{ url_for('search') }}">
+                    <input class="form-control" type="text" name="query"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">Find Restaurants!</button>
                     </div>
-                  </div>
-                {% endfor %}
+                </form>
             </div>
         </div>
+    </header>
+    <div class="row text-center">
+        {% for place in places %}
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{ place.image }}" alt="{{ place.name }}">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ place.name }}</h4>
+                        <h5 class="card-header-pills">in {{ place.city }}</h5>
+                        <p class="card-text">{{ place.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('place', place_id=place._id) }}" class="btn btn-primary">Find Out
+                            More!</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
+    <!-- /.row -->
 {% endblock %}
