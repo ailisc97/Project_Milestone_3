@@ -2,7 +2,7 @@ import os
 from flask import (
    Flask, flash, render_template, redirect,
    request, session, url_for)
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, DESCENDING
 from datetime import datetime, date
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -11,14 +11,9 @@ if os.path.exists("env.py"):
 
 app = Flask(__name__)
 
-
-# app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
-# app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-# app.secret_key = os.environ.get("SECRET_KEY")
-
-app.config["MONGO_DBNAME"] = "food"
-app.config["MONGO_URI"] = "mongodb+srv://user:6Sfenn5c@myfirstcluster.4312a.mongodb.net/food?retryWrites=true&w=majority"
-app.secret_key = "jihwdcihwcuihwhecuweciuw"
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
@@ -29,8 +24,8 @@ def home():
    """
    Renders home page template when going to the main website link
    """
-   four_places = mongo.db.places.find().limit(4)
-   return render_template('index.html', places=four_places)
+   four_places_to_eat = mongo.db.places.find().sort([('views', DESCENDING)]).limit(4)
+   return render_template('index.html', places=four_places_to_eat)
 
 
 @app.route("/signup", methods=["GET", "POST"])
