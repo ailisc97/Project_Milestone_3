@@ -129,3 +129,23 @@ def edit_place(place_id):
         return redirect(url_for('home'))
     return render_template('edit_restaurant.html', place=place_db, form=form)
 
+
+@app.route('/create_place', methods=['GET', 'POST'])
+def create_place():
+    """Creates a recipe and enters into recipe collection"""
+    form = CreatePlacesForm(request.form)
+    if form.validate_on_submit():
+        # set the collection
+        places_db = mongo.db.places
+        # insert the new recipe
+        places_db.insert_one({
+            'name': request.form['name'],
+            'city': request.form['city'],
+            'added_by': session['username'],
+            'description': request.form['description'],
+            'tags': request.form['tags'],
+            'image': request.form['image'],
+            'views': 0
+        })
+        return redirect(url_for('home'))
+    return render_template('create_restaurant.html', form=form)
