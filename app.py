@@ -196,3 +196,8 @@ def search():
     })
     return render_template('search.html', query=query, results=results)
 
+
+if __name__ == '__main__':
+    app.config['TRAP_BAD_REQUEST_ERRORS'] = False
+    app.config['DEBUG'] = False
+    app.run(host='127.0.0.1', debug=False)
