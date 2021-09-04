@@ -55,32 +55,31 @@ def signup():
     return render_template('signup.html', form=form)
 
 
-@app.route("/signin", methods=["GET", "POST"])
-def signin():
-   """
-   Checks users collection for user and password to allow registered
-   users to sign in. Redirects to profile on successful sign in.
-   """
-   if request.method == "POST":
-       existing_user = mongo.db.users.find_one(
-           {"username": request.form.get("username").lower()})
-        # Check if user exists and that password matches.
-       if existing_user:
-           if check_password_hash(
-                   existing_user["password"], request.form.get("password")):
-               session["user"] = request.form.get("username").lower()
-               flash(f"Welcome, {session['user']}", 'message')
-               return redirect(url_for(
-                   "profile", username=session["user"]))
-           else:
-               flash("Incorrect Username and/or Password", 'error')
-               return redirect(url_for("signin"))
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Login handler"""
+    if session.get('logged_in'):
+        if session['logged_in'] is True:
+            return redirect(url_for('home'))
 
-       else:
-           flash("Incorrect Username and/or Password", 'error')
-           return redirect(url_for("signin"))
+    form = LoginForm()
+    if form.validate_on_submit():
+        # get all users
+        users = mongo.db.users
+        # try and get one with same name as entered
+        db_user = users.find_one({'username': request.form['username']})
+        if db_user:
+            # check password using hashing
+            if bcrypt.hashpw(request.form['password'].encode('utf-8'),
+                             db_user['password']) == db_user['password']:
+                session['username'] = request.form['username']
+                session['logged_in'] = True
+                # successful redirect to home logged in
+                return redirect(url_for('home', form=form))
+            # must have failed set flash message
+            flash('Invalid username/password combination')
+    return render_template("login.html", form=form)
 
-   return render_template("signin.html")
 
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
