@@ -28,29 +28,29 @@ def home():
    return render_template('index.html', places=four_places_to_eat)
 
 
-@app.route("/signup", methods=["GET", "POST"])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    """
-    Sign up page, allows users to register for an account
-    if username doesn't already exist.
-    """
-    if request.method == "POST":
-        existing_user = mongo.db.users.find_one({"username": request.form.get("username").lower()})
-        if existing_user:
-            flash("This user name already exists.", 'error')
-            return redirect(url_for("signup"))
-        new_user = {
-           "username": request.form.get("username").lower(),
-           "password": generate_password_hash(request.form.get("password")),
-           "name": request.form.get("name").lower()
-        }
-        # Insert new user into users collection
-        mongo.db.users.insert_one(new_user)
-        session["user"] = request.form.get("username").lower()
-        # Display flash success message on screen
-        flash("Registration Successful!", 'message')
-        return redirect(url_for("profile", username=session["user"]))
-    return render_template("signup.html")
+    """Handles registration functionality"""
+    form = SignupForm(request.form)
+    if form.validate_on_submit():
+        # get all the users
+        users = mongo.db.users
+        # see if we already have the entered username
+        existing_user = users.find_one({'username': request.form['username']})
+
+        if existing_user is None:
+            # hash the entered password
+            hash_pass = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+            # insert the user to DB
+            users.insert_one({'username': request.form['username'],
+                          'password': hash_pass})
+            session['username'] = request.form['username']
+            return redirect(url_for('home'))
+        # duplicate username set flash message and reload page
+        flash('Sorry, that username is already taken - use another')
+        return redirect(url_for('signup'))
+    return render_template('signup.html', form=form)
+
 
 @app.route("/signin", methods=["GET", "POST"])
 def signin():
