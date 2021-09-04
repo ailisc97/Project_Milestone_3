@@ -166,3 +166,33 @@ def delete_place(place_id):
         })
         return redirect(url_for('home'))
     return render_template('delete_restaurant.html', place=place_db, form=form)
+
+
+@app.route('/places')
+def places():
+    """Logic for recipe list and pagination"""
+    # number of recipes per page
+    per_page = 8
+    page = int(request.args.get('page', 1))
+    # count total number of recipes
+    total = mongo.db.places.count_documents({})
+    # logic for what recipes to return
+    all_places = mongo.db.places.find().skip((page - 1)*per_page).limit(per_page)
+    pages = range(1, int(math.ceil(total / per_page)) + 1)
+    return render_template('restaurants.html', places=all_places, page=page, pages=pages, total=total)
+
+
+@app.route('/search')
+def search():
+    """Provides logic for search bar"""
+    query = request.args['query']
+    # find instances of the entered word in title, tags or ingredients
+    results = mongo.db.places.find({
+        '$or': [
+            {'name': {'$regex': query, '$options': 'i'}},
+            {'tags': {'$regex': query, '$options': 'i'}},
+            {'city': {'$regex': query, '$options': 'i'}},
+        ]
+    })
+    return render_template('search.html', query=query, results=results)
+
