@@ -38,11 +38,11 @@
 ## Purpose
 This website was created for Milestone Project 3 in the Software Development Course for Code Insitute. The languages used in the project are the languages which have been thought in the course up until now, which include, HTML, CSS, JS, User Centric Design, Interactive Front End Development, Python Essential and Backend Development.
 
-The live website can be found [here](https://ailisc97.github.io/Milestone_Project_3/)
+The live website can be found [here](https://ailisc97.github.io/Project_Milestone_3/) and on Heroku [here](https://resturant-places.herokuapp.com/home)
 
 ## Resturant Finder Website
 
-![Website Mockup](assets/images/)
+![Website Mockup](static/images/Capture.PNG)
 
 Resturant Finder, is a website in which users can find a resturant by serching by location or tags, which is how to describe the resturant for example: cheap, spicy, Italian and expensive. Users can also have accounts where they can add, delete and edit resturants. This website is great for friends, family and couples who dont know where they want to eat and now they can easily find out where they want to go with this handy new website. This project is for the Milestone 3 project which has python and backend tecnology added in the form of MongoDB and Heroku. 
 
@@ -60,7 +60,7 @@ Resturant Finder, is a website in which users can find a resturant by serching b
 
 
 #### Returning Visitor Goals
-* As a Returning User, I want to know how to contact the creators of this website.
+* As a Returning User, I want to know who are the creators of this website.
 * As a Returning user, I want to set up an account so I can add resturant(s) to the website.
 
 #### Frequent Visitor Goals
@@ -80,8 +80,8 @@ The search function for the User to search different resturants.
 In the Footer there will be links to find the site links on the page.
 > As a First Time user, I want to access the site links.
 
-The Footer will also inform the user how to get in touch with the website creators.
->As a Returning User, I want to know how to contact the creators of this website.
+The Footer will also inform the user who are the website creators.
+>As a Returning User, I want to know who are the creators of this website.
 
 Users who set up an account would want to add, delete and edit the page so the other users can find new and exciting resturants to visit in the future.
 >As a Returning user, I want to set up an account so I can add resturant(s) to the website.
@@ -90,17 +90,17 @@ Users who set up an account would want to add, delete and edit the page so the o
 
 ### Design
 #### Colour Scheme
-The background colour used is white. The nav bar and the footer are a cream colour. The resturant card has the background in white, the words in black and a picture of the resturant.
+The background colour used is white. The nav bar and the footer are a grey in colour. The resturant card has the background in white, the words in black and a picture of the resturant.
 
-In the form page (signup.html) the form it's self is a white with black.
+In the form page (signup.html), and the login page (login.html) the create restaurants (create_restaurant.html) and the edit restaurant (edit_restaurant.html) the form it's self is a white with black and a user friendly button.
 
-In the footer the background is cream and when hovered over the media links and phone and email number it changes to dark blue.
+The search bar is on the home page (index.html) and the resturant page (restaurants.html) there is a nice blue button to serch the restaurants,tags or city.
 
 ####  Typography
 The font on the website is **Roboto**. This font was off Google Fonts.
 
 #### Wireframes
-Index.html page, Contact page, Create-Resturant page, Edit-Resturant page, Resturant Page, Sign Up, Sign In<br>
+Index.html page,place page, create_resturant page, edit_resturant page, Resturant Page, Sign up, Sign In and login<br>
 ![Wireframe](assets/images/)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
