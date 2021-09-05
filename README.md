@@ -38,7 +38,7 @@
 ## Purpose
 This website was created for Milestone Project 3 in the Software Development Course for Code Insitute. The languages used in the project are the languages which have been thought in the course up until now, which include, HTML, CSS, JS, User Centric Design, Interactive Front End Development, Python Essential and Backend Development.
 
-The live website can be found [here](https://ailisc97.github.io/Project_Milestone_3/) and on Heroku [here](https://resturant-places.herokuapp.com/home)
+The live website can be found on Heroku [here](https://resturant-places.herokuapp.com/home)
 
 ## Resturant Finder Website
 
