@@ -317,6 +317,9 @@ for security purposes.**
 Once the project has been loaded into an IDE of choice, run the following command in the shell to install all the required packages:
 > pip install -r requirements.txt
 
+
+URL to deployed Heroku [here](https://resturant-places.herokuapp.com/home)
+
 ### Deployment to Heroku
 
 **Create application:**
