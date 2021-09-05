@@ -100,8 +100,29 @@ The search bar is on the home page (index.html) and the resturant page (restaura
 The font on the website is **Roboto**. This font was off Google Fonts.
 
 #### Wireframes
-Index.html page,place page, create_resturant page, edit_resturant page, Resturant Page, Sign up, Sign In and login<br>
-![Wireframe](assets/images/)
+Index.html page and Resturant Page Desktop<br>
+![Wireframe](static/images/Index&Restaurant_Desktop.jpg)<br>
+
+Place page and Create_resturant page Desktop<br>
+![Wireframe](static/images/Place&Create_Desktop.jpg)<br>
+
+Edit_resturant page and Delete_restaurant page Desktop<br>
+![Wireframe](static/images/Edit&Delete_Desktop.jpg)<br>
+
+Login and Sign In Desktop<br>
+![Wireframe](static/images/Login&Signup_Desktop.jpg)<br>
+
+Index.html page and Resturant Page Phone<br>
+![Wireframe](static/images/Index&Restaurant_Phone.jpg)<br>
+
+Place page and Create_resturant page Phone<br>
+![Wireframe](static/images/Place&Create_Phone.jpg)<br>
+
+Edit_resturant page and Delete_restaurant page Phone<br>
+![Wireframe](static/images/Edit&Delete_Phone.jpg)<br>
+
+Login and Sign In Phone<br>
+![Wireframe](static/images/Login&Signup_Phone.jpg)<br>
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### Limitations
