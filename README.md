@@ -119,7 +119,7 @@ Place page and Create_resturant page Phone<br>
 ![Wireframe](static/images/Place&Create_Phone.jpg)<br>
 
 Edit_resturant page and Delete_restaurant page Phone<br>
-![Wireframe](static/images/Edit&Delete_Phone.jpg)<br>
+![Wireframe](static/images/Edi&Delete_Phone.jpg)<br>
 
 Login and Sign In Phone<br>
 ![Wireframe](static/images/Login&Signup_Phone.jpg)<br>
