@@ -257,7 +257,7 @@ JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 Python Code must pass through [PEP8 Validator](http://pep8online.com/)
 
 #### **High Level Test Cases**
-![Test Cases]()
+![Test Cases](static/images/TestCases.xlsx)
 
 #### **Access Requirements**
 Tester must have access to MongoDB in order to manually verify the insertion 
@@ -273,7 +273,7 @@ Testing is dependent on the website being deployed live on Heroku.
 
 ### Test Results
 
-Full test results can be found [here]()
+Full test results can be found [here](static/images/TestCases.xlsx)
 
 ****
 
