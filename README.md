@@ -23,11 +23,7 @@
 * [Technologies](#Technologies)
 * [Testing](#Testing)
     * [Test Strategy](#Test-Strategy)
-      * [Summary](#Summary)
-      * [High Level Test Cases](#High-Level-Test-Cases)
-      * [Out of Scope](#Out-of-Scope)
     * [Test Results](#Test-Results)
-    * [Testing Issues](#Issues-and-Resolutions-to-issues-found-during-testing)
 * [Deployment](#Deployment)
     * [Project Creation](#Project-Creation)
     * [GitHub Pages](#Using-Github-Pages)
@@ -237,7 +233,7 @@ As mentioned in the limitations having the cards all a uniform size would be a v
     * CSS Checker is an important website to make sure there are no errors in the CSS code.
 * [JSHint](https://jshint.com/)
     * JS Checker is an important website to make sure there are no errors in the JS code.
-* [Python syntax checker](https://extendsclass.com/python-tester.html)
+* [Python syntax checker](http://pep8online.com/)
     * Python Checker is an important website to make sure there are no errors in the JS code.
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 ## Testing
@@ -255,6 +251,8 @@ CSS Code must pass through the [W3C CSS Validator](https://jigsaw.w3.org/css-val
 JavaScript code must pass through the [JSHint Validator](https://jshint.com/).
 
 Python Code must pass through [PEP8 Validator](http://pep8online.com/)
+
+All Code passed through the validator.
 
 #### **High Level Test Cases**
 ![Test Cases](static/images/TestCases.xlsx)
