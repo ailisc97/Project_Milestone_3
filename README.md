@@ -173,6 +173,8 @@ users. In production these are stored in Heroku.
 
 ### Limitations
 The biggest limitation I faced was the cards in the html that holds the resturants, they take any picture but sometimes the pictures are different sizes and I couldnt get them to be uniform. Its the same problem with the description some sentences are longer on some reviews then others, making the cards not uniform. 
+
+City doesnt come up in some of the cards, or in some of the places.html. If I had more time id like to know why.
  
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
